@@ -1,0 +1,25 @@
+{
+  "name": "bybit-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@mtproto/core": "6.3.0",
+    "axios": "^1.7.2",
+    "binance": "^2.11.5",
+    "cheerio": "^1.0.0-rc.12",
+    "input": "^1.0.1",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.45",
+    "node-binance-api": "^0.13.1",
+    "node-cron": "^3.0.3",
+    "node-telegram-bot-api": "^0.66.0",
+    "telegram": "^2.22.2"
+  }
+}
