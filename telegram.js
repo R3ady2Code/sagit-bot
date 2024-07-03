@@ -73,8 +73,8 @@ async function setNewRates() {
 
     const rates = {
         rubthb: rub ? (rubthb + (rubthb / 100) * rubPercent)?.toFixed(2) : null,
-        kztthb: kzt ? (kztthb + (kztthb / 100) * thbPercent)?.toFixed(2) : null,
-        usdthb: kzt ? (thb + (thb / 100) * kzhPercent)?.toFixed(2) : null
+        kztthb: kzt ? (kztthb + (kztthb / 100) * kzhPercent)?.toFixed(2) : null,
+        usdthb: kzt ? (thb + (thb / 100) * thbPercent)?.toFixed(2) : null
     };
 
     const phuketTime = moment().tz("Asia/Bangkok").format("DD.MM.YYYY HH:mm");
