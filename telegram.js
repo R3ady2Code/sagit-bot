@@ -72,9 +72,9 @@ async function setNewRates() {
     const kztthb = kzt / thb;
 
     const rates = {
-        rubthb: rub ? (rubthb + (rubthb / 100) * rubPercent)?.toFixed(2) : null,
-        kztthb: kzt ? (kztthb + (kztthb / 100) * kzhPercent)?.toFixed(2) : null,
-        usdthb: kzt ? (thb + (thb / 100) * thbPercent)?.toFixed(2) : null
+        rubthb: rubthb + (rubthb / 100) * rubPercent ? (rubthb + (rubthb / 100) * rubPercent)?.toFixed(2) : null,
+        kztthb: kztthb + (kztthb / 100) * kzhPercent ? (kztthb + (kztthb / 100) * kzhPercent)?.toFixed(2) : null,
+        usdthb: thb + (thb / 100) * thbPercent ? (thb + (thb / 100) * thbPercent)?.toFixed(2) : null
     };
 
     const phuketTime = moment().tz("Asia/Bangkok").format("DD.MM.YYYY HH:mm");
@@ -86,7 +86,8 @@ async function setNewRates() {
 
     const message = await getMessage(messageId, chatId);
 
-    const newMessageText = updateCurrencyRates(message.message, rates.rubthb, rates.usdthb, rates.kztthb, phuketTime);
+    if (!message?.message) return console.log("message проблема", message);
+    const newMessageText = updateCurrencyRates(message?.message, rates.rubthb, rates.usdthb, rates.kztthb, phuketTime);
 
     const media = new Api.InputMediaWebPage({
         url: "https://t.me/StatemanChannel"
@@ -105,5 +106,5 @@ async function setNewRates() {
 
 // auth();
 
-cron.schedule("*/10 * * * *", () => setNewRates().catch((err) => console.log(err, "Ошибка")));
-// setNewRates();
+// cron.schedule("*/10 * * * *", () => setNewRates().catch((err) => console.log(err, "Ошибка")));
+setNewRates();

@@ -10,6 +10,8 @@ async function fetchRate(symbol) {
 
         const data = $(".css-1bwgsh3").text();
 
+        console.log(Number(data.split(" ")[1]));
+
         return Number(data.split(" ")[1]);
     } catch (error) {
         console.error("Ошибка при парсинге страницы:", error);
